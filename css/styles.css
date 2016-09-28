@@ -31,6 +31,7 @@ body {
     width: 110px;
     margin: 5px;
     float: left;
+    background-color: white;
 }
 
 #zero-btn {
