@@ -34,7 +34,7 @@ body {
     top: 7px;
 }
 
-#equals-btn {
+#equals {
     position: relative;
     height: 112px;
     top: 0px;
@@ -42,14 +42,14 @@ body {
 }
 
 
-#zero-btn {
+#zero {
     width: 112px;
     margin-right: 10px;
     position: relative;
     top: -60px;
 }
 
-#period-btn {
+#period {
      position: relative;
      top: -60px;
      margin-left: 1px;
