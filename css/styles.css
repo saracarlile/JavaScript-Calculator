@@ -3,6 +3,12 @@ body {
 }
 
 
+
+
+.top-text {
+    font-size: 1.8em;
+    margin-left: 20px;
+}
 .middle-div{
     margin: 5% auto;
     background-color: #CDDC39;
@@ -19,6 +25,7 @@ body {
     margin-left: 5px;
     margin-right: 20px;
     margin-bottom: 5px;
+    border-radius: 2px;
 }
 
 .display p {
