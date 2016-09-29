@@ -36,27 +36,27 @@ body {
 
 #equals-btn {
     position: relative;
-    height: 120px;
+    height: 112px;
     top: 0px;
 }
 
 
 #zero-btn {
-    width: 120px;
+    width: 112px;
     margin-right: 10px;
     position: relative;
-    top: -65px;
+    top: -60px;
 }
 
 #period-btn {
      position: relative;
-     top: -65px;
-     margin-left: 0px;
+     top: -60px;
+     margin-left: 1px;
 }
 
 .one-two-three-btn {
     position: relative;
-    top: -35px;
+    top: -31px;
 }
 
 
