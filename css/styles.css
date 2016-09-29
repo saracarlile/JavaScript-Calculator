@@ -3,11 +3,9 @@ body {
 }
 
 
-
-
 .top-text {
     font-size: 1.8em;
-    margin-left: 20px;
+    margin-left: 18px;
 }
 .middle-div{
     margin: 5% auto;
@@ -90,11 +88,3 @@ button:focus {
   }
 
 
-/*  
-375B4F dark green
-32E1A4 bright green
-83DBBC pale green
-375B4F darker dark green
-64A890 medium green
-
-*/
