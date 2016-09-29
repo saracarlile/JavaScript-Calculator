@@ -94,3 +94,7 @@ button:focus {
     font-size: 30px;
     padding: 0px;
 }
+
+#AC, #CE{
+    background-color:#a72d45;
+}
