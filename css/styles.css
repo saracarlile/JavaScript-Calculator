@@ -2,6 +2,7 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
+
 .middle-div{
     margin: 5% auto;
     background-color: #CDDC39;
@@ -18,9 +19,15 @@ body {
     margin-left: 5px;
     margin-right: 20px;
     margin-bottom: 5px;
-    color: #536DFE;
 }
 
+.display p {
+    font-size: 2em;
+    color: #536DFE;
+    position: relative;
+    margin-right: 5px;
+    top: 7px;
+}
 
 #equals-btn {
     position: relative;
