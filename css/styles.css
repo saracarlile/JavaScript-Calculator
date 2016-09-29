@@ -38,6 +38,7 @@ body {
     position: relative;
     height: 112px;
     top: 0px;
+    font-size: 2.5em;
 }
 
 
@@ -52,6 +53,8 @@ body {
      position: relative;
      top: -60px;
      margin-left: 1px;
+     font-size: .6em;
+     padding-top: 20px;
 }
 
 .one-two-three-btn {
@@ -87,4 +90,7 @@ button:focus {
     outline:0 !important;
   }
 
-
+#divide {
+    font-size: 30px;
+    padding: 0px;
+}
