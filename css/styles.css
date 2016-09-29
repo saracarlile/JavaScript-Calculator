@@ -1,11 +1,10 @@
-
 body {
     font-family: 'Oswald', sans-serif;
 }
 
 .middle-div{
     margin: 5% auto;
-    background-color: grey;
+    background-color: #CDDC39;
     width: 320px;
     padding: 30px;
     height: 600px;
@@ -15,10 +14,11 @@ body {
 .display {
     display: block;
     height: 50px;
-    background-color: white;
+    background-color: #F0F4C3;
     margin-left: 5px;
     margin-right: 20px;
     margin-bottom: 5px;
+    color: #536DFE;
 }
 
 
@@ -42,6 +42,11 @@ body {
      margin-left: 0px;
 }
 
+.one-two-three-btn {
+    position: relative;
+    top: -25px;
+}
+
 .btn-circle.btn-lg {
   width: 50px;
   height: 50px;
@@ -49,12 +54,29 @@ body {
   font-size: 18px;
   line-height: 1.33;
   border-radius: 25px;
+  background-color: #BDBDBD;
   margin: 5px;
-}
-
-.one-two-three-btn {
-    position: relative;
-    top: -25px;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
 }
 
 
+.btn-circle.btn-lg:hover {
+    background-color: #757575;
+}
+
+.btn-circle.btn-lg:active {
+    background-color: #58445B;
+}
+
+
+
+
+/*  
+375B4F dark green
+32E1A4 bright green
+83DBBC pale green
+375B4F darker dark green
+64A890 medium green
+
+*/
