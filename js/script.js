@@ -7,23 +7,22 @@ $(document).ready(function () {
         else if (elements[i].id === 'CE') {
             elements[i].addEventListener("click", funcCE, false);
         }
-        else if(elements[i].id === 'divide'){
+        else if (elements[i].id === 'divide') {
             elements[i].addEventListener("click", divide, false);
         }
-         else if(elements[i].id === 'multiply'){
-             elements[i].addEventListener("click", multiply, false);
+        else if (elements[i].id === 'multiply') {
+            elements[i].addEventListener("click", multiply, false);
         }
-         else if(elements[i].id === 'subtract'){
-             elements[i].addEventListener("click", subtract, false);
+        else if (elements[i].id === 'subtract') {
+            elements[i].addEventListener("click", subtract, false);
         }
-        else if(elements[i].id === 'plus'){
+        else if (elements[i].id === 'plus') {
             elements[i].addEventListener("click", plus, false);
         }
         else {
             elements[i].addEventListener("click", funcNumber, false);
         }
     }
-
 
     function funcAC() {
 

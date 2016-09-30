@@ -1,68 +1,68 @@
 body {
-    font-family: 'Oswald', sans-serif;
-    background-color: lightgray;
+  font-family: 'Oswald', sans-serif;
+  background-color: lightgray;
 }
 
 .top-text {
-    font-size: 1.8em;
-    margin-left: 18px;
+  font-size: 1.8em;
+  margin-left: 18px;
 }
-.middle-div{
-    margin: 5% auto;
-    background-color: #CDDC39;
-    width: 320px;
-    padding: 30px;
-    height: 500px;
-    border-radius: 10px;
-    border: 1px solid black;    
+
+.middle-div {
+  margin: 5% auto;
+  background-color: #CDDC39;
+  width: 320px;
+  padding: 30px;
+  height: 500px;
+  border-radius: 10px;
+  border: 1px solid black;
 }
+
 .display {
-    display: block;
-    height: 50px;
-    background-color: #F0F4C3;
-    margin-left: 5px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    border-radius: 2px;
-    border: 1px solid black;
+  display: block;
+  height: 50px;
+  background-color: #F0F4C3;
+  margin-left: 5px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  border: 1px solid black;
 }
 
 .display p {
-    font-size: 2em;
-    color: #536DFE;
-    position: relative;
-    margin-right: 5px;
-    top: 7px;
+  font-size: 2em;
+  color: #536DFE;
+  position: relative;
+  margin-right: 5px;
+  top: 7px;
 }
 
 #equals {
-    position: relative;
-    height: 112px;
-    top: 0px;
-    font-size: 1.8em;
+  position: relative;
+  height: 112px;
+  top: 0px;
+  font-size: 1.8em;
 }
 
-
 #zero {
-    width: 112px;
-    margin-right: 10px;
-    position: relative;
-    top: -60px;
+  width: 112px;
+  margin-right: 10px;
+  position: relative;
+  top: -60px;
 }
 
 #period {
-     position: relative;
-     top: -60px;
-     margin-left: 1px;
-     font-size: .6em;
-     padding-top: 20px;
+  position: relative;
+  top: -60px;
+  margin-left: 1px;
+  font-size: .6em;
+  padding-top: 20px;
 }
 
 .one-two-three-btn {
-    position: relative;
-    top: -31px;
+  position: relative;
+  top: -31px;
 }
-
 
 .btn-circle.btn-lg {
   width: 50px;
@@ -73,40 +73,40 @@ body {
   border-radius: 25px;
   background-color: #BDBDBD;
   margin: 5px;
-    -webkit-transition: background-color .3s;
-    transition: background-color .3s;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
 }
 
-
 .btn-circle.btn-lg:hover {
-    background-color: #757575;
-    color: white;
+  background-color: #757575;
+  color: white;
 }
 
 .btn-circle.btn-lg:active {
-    background-color: #58445B;
+  background-color: #58445B;
 }
 
 button:focus {
-    outline:0 !important;
-  }
+  outline: 0 !important;
+}
 
 #divide {
-    font-size: 30px;
-    padding: 0px;
+  font-size: 30px;
+  padding: 0px;
 }
 
-#AC, #CE{
-    background-color:#a72d45;
-    color: white;
+#AC,
+#CE {
+  background-color: #a72d45;
+  color: white;
 }
 
-#CE:hover, #AC:hover{
-    background-color: #520b0a;
+#CE:hover,
+#AC:hover {
+  background-color: #520b0a;
 }
 
-.footer-text{
-    display: relative;
-    top: 100px;
+.footer-text {
+  display: relative;
+  top: 100px;
 }
-
