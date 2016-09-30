@@ -78,13 +78,14 @@ body {
 }
 
 
-/*.btn-circle.btn-lg:hover {
+.btn-circle.btn-lg:hover {
     background-color: #757575;
-}*/
+    color: white;
+}
 
-/*.btn-circle.btn-lg:active {
- /   background-color: #58445B;
-}*/
+.btn-circle.btn-lg:active {
+    background-color: #58445B;
+}
 
 button:focus {
     outline:0 !important;
@@ -98,6 +99,10 @@ button:focus {
 #AC, #CE{
     background-color:#a72d45;
     color: white;
+}
+
+#CE:hover, #AC:hover{
+    background-color: #520b0a;
 }
 
 .footer-text{
