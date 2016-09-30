@@ -64,6 +64,14 @@ $(document).ready(function () {
         return st.push(num);
     }
 
+
+    function equals() {
+       var reslt = st.join(' ');
+       console.log(reslt);
+       st = [];
+        return console.log(eval(reslt));
+    }
+
   // var st= 2 + operator + 5;
   // console.log(eval(st));
 //  eval(myArray[0] + myArray[1] + myArray[2]);
