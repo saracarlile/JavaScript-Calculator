@@ -8,28 +8,41 @@ $(document).ready(function () {
             elements[i].addEventListener("click", funcCE, false);
         }
         else if (elements[i].id === 'divide') {
-            elements[i].addEventListener("click", divide, false);
+            elements[i].addEventListener("click", identifyOperator, false);
         }
         else if (elements[i].id === 'multiply') {
-            elements[i].addEventListener("click", multiply, false);
+            elements[i].addEventListener("click", identifyOperator, false);
         }
         else if (elements[i].id === 'subtract') {
-            elements[i].addEventListener("click", subtract, false);
+            elements[i].addEventListener("click", identifyOperator, false);
         }
         else if (elements[i].id === 'plus') {
-            elements[i].addEventListener("click", plus, false);
+            elements[i].addEventListener("click", identifyOperator, false);
+        }
+        else if (elements[i].id === 'equals') {
+            elements[i].addEventListener("click", equals, false);
         }
         else {
             elements[i].addEventListener("click", funcNumber, false);
         }
     }
 
+    var result = '';
+    var operator = ' ';
+    var resultDisplay = document.getElementById('result');
+
     function funcAC() {
 
     }
     function funcCE() {
-
+        result = '';
+        resultDisplay.textContent = result;
     }
+     function identifyOperator() {
+         var op = this.textContent;
+         return op;        
+    }
+     
     function funcNumber() {
 
     }
