@@ -11,15 +11,17 @@ $(document).ready(function () {
         }
     }
     function changeBgDarkRed() {
-        console.log("red");
+        this.style.background = "#520b0a";
     }
     function changeBg() {
-        console.log("dark grey");
+        this.style.background = "#757575";
+        this.style.color = "#FFFFFF";
     }
      function changeBgDarkRedLeave() {
-        console.log("red leave");
+        this.style.background = "#a72d45";
     }
     function changeBgLeave() {
-        console.log("dark grey leave");
+        this.style.background = "#BDBDBD";
+        this.style.color = "#000000";
     }
 });

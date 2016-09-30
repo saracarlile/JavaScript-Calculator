@@ -87,7 +87,6 @@ body {
 }*/
 
 button:focus {
-    background-color: #757575 !important;
     outline:0 !important;
   }
 
