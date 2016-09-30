@@ -1,7 +1,7 @@
 body {
     font-family: 'Oswald', sans-serif;
+    background-color: lightgray;
 }
-
 
 .top-text {
     font-size: 1.8em;
@@ -14,7 +14,7 @@ body {
     padding: 30px;
     height: 500px;
     border-radius: 10px;
-    
+    border: 1px solid black;    
 }
 .display {
     display: block;
@@ -24,6 +24,7 @@ body {
     margin-right: 20px;
     margin-bottom: 10px;
     border-radius: 2px;
+    border: 1px solid black;
 }
 
 .display p {
@@ -77,13 +78,13 @@ body {
 }
 
 
-.btn-circle.btn-lg:hover {
+/*.btn-circle.btn-lg:hover {
     background-color: #757575;
-}
+}*/
 
-.btn-circle.btn-lg:active {
-    background-color: #58445B;
-}
+/*.btn-circle.btn-lg:active {
+ /   background-color: #58445B;
+}*/
 
 button:focus {
     background-color: #757575 !important;
@@ -99,3 +100,9 @@ button:focus {
     background-color:#a72d45;
     color: white;
 }
+
+.footer-text{
+    display: relative;
+    top: 100px;
+}
+
