@@ -66,7 +66,8 @@ $(document).ready(function () {
 
   // var st= 2 + operator + 5;
   // console.log(eval(st));
-
+//  eval(myArray[0] + myArray[1] + myArray[2]);
+//The eval function takes a string and then returns the value of that string considered as a math operation
 
 
 });
