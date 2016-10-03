@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var elements = document.getElementsByClassName('btn-lg');
+    // create an array of calculator buttons, loop through the array to assign proper click event handler functions
     for (var i = 0; i < elements.length; i++) {
         if (elements[i].id === 'AC') {
             elements[i].addEventListener("click", funcAC, false);
@@ -27,55 +28,85 @@ $(document).ready(function () {
         }
     }
 
-    var result = '';
-    var st = [];
+    var result = '';  //result variable for calculator display
+    var st = [];  //st array holds elements until equal button
     var resultDisplay = document.getElementById('result');
 
     function funcAC() {
 
     }
+
     function funcCE() {
         result = '';
         resultDisplay.textContent = result;
     }
+
     function identifyOperator() {
         var op = this.textContent;
-        return st.push(op);
+        if (st.length > 0) {
+            var test = st[st.length - 1];
+            var f = parseInt(test, 10);
+            if (Number.isInteger(f)) {
+                st.push(op);
+                return st;
+            }
+        }
     }
+
     function subtract() {
         var sub = "-";
-        console.log(st);
-        return st.push(sub);
+        if (st.length > 0) {
+            var test = st[st.length - 1];
+            var f = parseInt(test, 10);
+            if (Number.isInteger(f)) {
+                st.push(sub);
+                return st;
+            }
+        }
     }
 
     function plus() {
         var pls = "+";
-        console.log(st);
-        return st.push(pls);
+        if (st.length > 0) {
+            var test = st[st.length - 1];
+            var f = parseInt(test, 10);
+            if (Number.isInteger(f)) {
+                st.push(pls);
+                return st;
+            }
+        }
     }
 
     function decimal() {
-    
+
     }
 
     function funcNumber() {
         var num = this.textContent;
-         console.log(st);
-        return st.push(num);
+        console.log(st);
+        var test = st[st.length - 1];
+        var f = parseInt(test, 10);
+        if (Number.isInteger(f)) {
+            st[st.length - 1] += num;
+        }
+        else {
+            st.push(num);
+        }
+        return st;
     }
 
 
     function equals() {
-       var reslt = st.join(' ');
-       console.log(reslt);
-       st = [];
+        var reslt = st.join(' ');
+        console.log(reslt);
+        st = [];
         return console.log(eval(reslt));
     }
 
-  // var st= 2 + operator + 5;
-  // console.log(eval(st));
-//  eval(myArray[0] + myArray[1] + myArray[2]);
-//The eval function takes a string and then returns the value of that string considered as a math operation
+    // var st= 2 + operator + 5;
+    // console.log(eval(st));
+    //  eval(myArray[0] + myArray[1] + myArray[2]);
+    //The eval function takes a string and then returns the value of that string considered as a math operation
 
 
 });
