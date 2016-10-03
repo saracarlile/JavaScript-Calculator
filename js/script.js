@@ -43,6 +43,12 @@ $(document).ready(function () {
 
     function identifyOperator() {
         var op = this.textContent;
+        if (op === "÷") {
+            op = "/";
+        }
+        else {
+            op = "*";
+        }
         if (st.length > 0) {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
@@ -97,16 +103,12 @@ $(document).ready(function () {
 
 
     function equals() {
-        var reslt = st.join(' ');
+        var reslt = st.join(' ');  //join st arrray into sring
         console.log(reslt);
-        st = [];
-        return console.log(eval(reslt));
+        st = [];  // set st array to be blank
+        var res = eval(reslt);
+        console.log(res);
+        return res;
     }
-
-    // var st= 2 + operator + 5;
-    // console.log(eval(st));
-    //  eval(myArray[0] + myArray[1] + myArray[2]);
-    //The eval function takes a string and then returns the value of that string considered as a math operation
-
 
 });
