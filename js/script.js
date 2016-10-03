@@ -28,22 +28,22 @@ $(document).ready(function () {
         }
     }
 
-    var st = [];  //st array holds button elements until funcAC/funcCE functions are used
-    var resultDisplay = document.getElementById('result');
+    var st = [];  //st array holds button elements until funcAC/funcCE functions are used to clear/edit array
+    var resultDisplay = document.getElementById('result');  // display on calculator
 
-    function funcAC() {
+    function funcAC() {  //AC clears all 
         st = [];
         resultDisplay.textContent = ' ';
         return st;
     }
 
-    function funcCE() {
+    function funcCE() {  //CE clears last entry
         console.log(st);
         st.pop();
         resultDisplay.textContent = st[st.length - 1];
     }
 
-    function identifyOperator() {
+    function identifyOperator() {  // multiply and divide buttons
         var op = this.textContent;
         if (op === "÷") {
             op = "/";
@@ -51,12 +51,11 @@ $(document).ready(function () {
         else {
             op = "*";
         }
-        if (st.length > 0) {
-            var test = st[st.length - 1];
+        if (st.length > 0) {  // if this isn't the first entry in string
+            var test = st[st.length - 1]; // check to see if last index of string is a number (helps to filter out multiple operators in a row in st array)
             var f = parseInt(test, 10);
-            if (Number.isInteger(f)) {
+            if (Number.isInteger(f)) {  // if the last index is a number, push / or * operator
                 st.push(op);
-                return st;
             }
         }
     }
@@ -67,8 +66,10 @@ $(document).ready(function () {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
-                st.push(sub);
-                return st;
+                var rt = st.join(' ');
+                var rteval = eval(rt);
+                resultDisplay.textContent = rteval.toString();  // update display with current total if last index is a number
+                st.push(sub);  // add minus sign to array
             }
         }
     }
@@ -79,15 +80,10 @@ $(document).ready(function () {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
-                if (st.length >= 3) {
-                    console.log(st);
-                    var a = st[st.length - 3];
-                    var ops = st[st.length - 2];
-                    var b = st[st.length - 1];
-                    resultDisplay.textContent = eval(a + ops + b);
-                }
+                var rt = st.join(' ');
+                var rteval = eval(rt);
+                resultDisplay.textContent = rteval.toString();
                 st.push(pls);
-                return st;
             }
         }
     }
@@ -97,28 +93,33 @@ $(document).ready(function () {
     }
 
     function funcNumber() {
-        var num = this.textContent;
-        resultDisplay.textContent = num;
+        var num = this.textContent;     
         console.log(st);
         var test = st[st.length - 1];
         var f = parseInt(test, 10);
         if (Number.isInteger(f)) {
             st[st.length - 1] += num;
+            resultDisplay.textContent = st[st.length - 1];
         }
         else {
             st.push(num);
+            resultDisplay.textContent = num;
         }
-        return st;
     }
 
 
     function equals() {
-        var reslt = st.join(' ');  //join st arrray into sring
-        console.log(reslt);
-        var res = eval(reslt);
-        console.log(res);
-        resultDisplay.textContent = res;
-        return res;
+        if (st.length > 0) {
+            var test = st[st.length - 1];
+            var f = parseInt(test, 10);
+            if (Number.isInteger(f)) {
+                var reslt = st.join(' ');  //join st arrray into sring
+                console.log(reslt);
+                var res = eval(reslt);
+                console.log(res);
+                resultDisplay.textContent = res;
+            }
+        }
     }
 
 });
