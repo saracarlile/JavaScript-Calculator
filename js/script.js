@@ -28,22 +28,20 @@ $(document).ready(function () {
         }
     }
 
-    var result = '';  //result variable for calculator display
     var st = [];  //st array holds elements until equal button
     var resultDisplay = document.getElementById('result');
 
     function funcAC() {
-        result = '';
         st = [];
         console.log(st);
-        resultDisplay.textContent = result;
+        resultDisplay.textContent = ' ';
         return st;
     }
 
     function funcCE() {
         console.log(st);
         st.pop();
-        resultDisplay.textContent = st[st.length -1];
+        resultDisplay.textContent = st[st.length - 1];
     }
 
     function identifyOperator() {
@@ -82,9 +80,9 @@ $(document).ready(function () {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
-                if(st.length >= 3) {
+                if (st.length >= 3) {
                     console.log(st);
-                    var a = st[st.length - 3 ];
+                    var a = st[st.length - 3];
                     var ops = st[st.length - 2];
                     var b = st[st.length - 1];
                     resultDisplay.textContent = eval(a + ops + b);
