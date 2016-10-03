@@ -28,12 +28,11 @@ $(document).ready(function () {
         }
     }
 
-    var st = [];  //st array holds elements until equal button
+    var st = [];  //st array holds button elements until funcAC/funcCE functions are used
     var resultDisplay = document.getElementById('result');
 
     function funcAC() {
         st = [];
-        console.log(st);
         resultDisplay.textContent = ' ';
         return st;
     }
@@ -99,6 +98,7 @@ $(document).ready(function () {
 
     function funcNumber() {
         var num = this.textContent;
+        resultDisplay.textContent = num;
         console.log(st);
         var test = st[st.length - 1];
         var f = parseInt(test, 10);
