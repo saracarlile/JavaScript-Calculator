@@ -33,12 +33,17 @@ $(document).ready(function () {
     var resultDisplay = document.getElementById('result');
 
     function funcAC() {
-
+        result = '';
+        st = [];
+        console.log(st);
+        resultDisplay.textContent = result;
+        return st;
     }
 
     function funcCE() {
-        result = '';
-        resultDisplay.textContent = result;
+        console.log(st);
+        st.pop();
+        resultDisplay.textContent = st[st.length -1];
     }
 
     function identifyOperator() {
@@ -77,6 +82,13 @@ $(document).ready(function () {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
+                if(st.length >= 3) {
+                    console.log(st);
+                    var a = st[st.length - 3 ];
+                    var ops = st[st.length - 2];
+                    var b = st[st.length - 1];
+                    resultDisplay.textContent = eval(a + ops + b);
+                }
                 st.push(pls);
                 return st;
             }
@@ -105,9 +117,9 @@ $(document).ready(function () {
     function equals() {
         var reslt = st.join(' ');  //join st arrray into sring
         console.log(reslt);
-        st = [];  // set st array to be blank
         var res = eval(reslt);
         console.log(res);
+        resultDisplay.textContent = res;
         return res;
     }
 
