@@ -36,19 +36,25 @@ $(document).ready(function () {
     function updateTotal() {
         if (st.length >= 3) {
             var a = st[st.length - 1];
-            var b = st[st.length - 2];
-            console.log(total, a, b);
+            var b = st[st.length - 2];  
+            if(a === "="){
+                a = "";
+            }
+             if(b === "="){
+                b = "";
+            }
             var rst_eval = eval(total + b + a);
             total = rst_eval;
             resultDisplay.textContent = total.toString();
         }
         else {
             var rt = st.join(' ');
-            var rteval = eval(rt);
+            var rt_removeEqual = rt.replace(/=/gi, '');
+            var rteval = eval(rt_removeEqual);
             total = rteval;
             resultDisplay.textContent = total.toString()
         }
-        
+         
         helpDisplayText.textContent = " ";
 
         for(var j = 0; j < st.length; j++){
@@ -87,8 +93,6 @@ $(document).ready(function () {
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {  // if the last index is a number, push / or * operator
                 updateTotal();
-                console.log(st);
-                console.log(total);
                 st.push(op);
             }
             else { // if previous index is operator, remove operator from st array and add new operator
@@ -105,8 +109,6 @@ $(document).ready(function () {
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
                 updateTotal();
-                console.log(st);
-                console.log(total);
                 st.push(sub);  // add minus sign to array
             }
             else {
@@ -118,20 +120,18 @@ $(document).ready(function () {
 
     function plus() {
         var pls = "+";
+        resultDisplay.textContent = ' ';
+        console.log(st.length, total, st);
         if (st.length > 0) {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
                 updateTotal();
-                console.log(st);
-                console.log(total);
                 st.push(pls);
             }
             else {
-                console.log(st);
                 st.pop();
                 st.push(pls);
-                console.log(st);
             }
         }
     }
@@ -141,6 +141,8 @@ $(document).ready(function () {
     }
 
     function funcNumber() {
+        console.log(st);
+        resultDisplay.textContent = ' ';
         var num = this.textContent;
         if (st.length === 0) {
             total = num.toString();
@@ -155,6 +157,7 @@ $(document).ready(function () {
             st.push(num);
             resultDisplay.textContent = num;
         }
+         console.log(st);
     }
 
 
@@ -164,6 +167,9 @@ $(document).ready(function () {
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
                 updateTotal();
+                st = [];
+                st.push(total, "=");
+                console.log(st.length, total, st);
             }
         }
     }
