@@ -31,7 +31,8 @@ $(document).ready(function () {
     var st = [];  //st array holds button elements until funcAC/funcCE functions are used to clear/edit array
     var total = 0;
     var resultDisplay = document.getElementById('result');  // display on calculator
-
+    var helpDisplayText = document.getElementById('help-text');
+    
     function updateTotal() {
         if (st.length >= 3) {
             var a = st[st.length - 1];
@@ -47,6 +48,14 @@ $(document).ready(function () {
             total = rteval;
             resultDisplay.textContent = total.toString()
         }
+        
+        helpDisplayText.textContent = " ";
+
+        for(var j = 0; j < st.length; j++){
+            if(st[j] != undefined){
+                helpDisplayText.textContent += " "+ st[j];
+            }           
+        }
     }
 
 
@@ -54,6 +63,8 @@ $(document).ready(function () {
     function funcAC() {  //AC clears all 
         st = [];
         resultDisplay.textContent = ' ';
+        total = 0;
+        helpDisplayText.textContent = ' ';
         return st;
     }
 
@@ -152,14 +163,12 @@ $(document).ready(function () {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
-                var reslt = st.join(' ');  //join st arrray into sring
-                console.log(reslt);
-                var res = eval(reslt);
-                console.log(res);
-                total = res;
-                resultDisplay.textContent = res;
+                updateTotal();
             }
         }
     }
+
+
+
 
 });
