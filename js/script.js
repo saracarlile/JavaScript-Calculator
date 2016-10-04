@@ -29,7 +29,27 @@ $(document).ready(function () {
     }
 
     var st = [];  //st array holds button elements until funcAC/funcCE functions are used to clear/edit array
+    var total = 0;
     var resultDisplay = document.getElementById('result');  // display on calculator
+
+    function updateTotal() {
+        if (st.length >= 3) {
+            var a = st[st.length - 1];
+            var b = st[st.length - 2];
+            console.log(total, a, b);
+            var rst_eval = eval(total + b + a);
+            total = rst_eval;
+            resultDisplay.textContent = total.toString();
+        }
+        else {
+            var rt = st.join(' ');
+            var rteval = eval(rt);
+            total = rteval;
+            resultDisplay.textContent = total.toString()
+        }
+    }
+
+
 
     function funcAC() {  //AC clears all 
         st = [];
@@ -55,6 +75,13 @@ $(document).ready(function () {
             var test = st[st.length - 1]; // check to see if last index of string is a number (helps to filter out multiple operators in a row in st array)
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {  // if the last index is a number, push / or * operator
+                updateTotal();
+                console.log(st);
+                console.log(total);
+                st.push(op);
+            }
+            else { // if previous index is operator, remove operator from st array and add new operator
+                st.pop();
                 st.push(op);
             }
         }
@@ -66,10 +93,14 @@ $(document).ready(function () {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
-                var rt = st.join(' ');
-                var rteval = eval(rt);
-                resultDisplay.textContent = rteval.toString();  // update display with current total if last index is a number
+                updateTotal();
+                console.log(st);
+                console.log(total);
                 st.push(sub);  // add minus sign to array
+            }
+            else {
+                st.pop();
+                st.push(sub);
             }
         }
     }
@@ -80,10 +111,16 @@ $(document).ready(function () {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {
-                var rt = st.join(' ');
-                var rteval = eval(rt);
-                resultDisplay.textContent = rteval.toString();
+                updateTotal();
+                console.log(st);
+                console.log(total);
                 st.push(pls);
+            }
+            else {
+                console.log(st);
+                st.pop();
+                st.push(pls);
+                console.log(st);
             }
         }
     }
@@ -93,8 +130,10 @@ $(document).ready(function () {
     }
 
     function funcNumber() {
-        var num = this.textContent;     
-        console.log(st);
+        var num = this.textContent;
+        if (st.length === 0) {
+            total = num.toString();
+        }
         var test = st[st.length - 1];
         var f = parseInt(test, 10);
         if (Number.isInteger(f)) {
@@ -117,6 +156,7 @@ $(document).ready(function () {
                 console.log(reslt);
                 var res = eval(reslt);
                 console.log(res);
+                total = res;
                 resultDisplay.textContent = res;
             }
         }
