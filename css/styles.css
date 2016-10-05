@@ -27,6 +27,7 @@ body {
   margin-bottom: 10px;
   border-radius: 2px;
   border: 1px solid black;
+  overflow: hidden;
 }
 
 #help-text{

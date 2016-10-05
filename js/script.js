@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
             else {
                 var rst_eval = eval(total + b + a);
-                total = Math.round(rst_eval*1000000)/1000000; //truncate repeating decimals to six decimal places
+                total = Math.round(rst_eval*100000000)/100000000; //truncate repeating decimals to eight decimal places
                 resultDisplay.textContent = total.toString();
             }
         }
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var rt = st.join(' ');
             var rt_removeEqual = rt.replace(/=/gi, '');
             var rteval = eval(rt_removeEqual);
-            total = Math.round(rteval*1000000)/1000000;
+            total = Math.round(rteval*100000000)/100000000;
             resultDisplay.textContent = total.toString();
         }
 
