@@ -161,6 +161,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
         else if(test === "="){
             console.log("no push", st);
+            st = [];
+            total = 0;
+            st.push(zeroDecimal);
+            helpDisplayText.textContent = zeroDecimal;
             resultDisplay.textContent = zeroDecimal;
         }
         else {
@@ -184,6 +188,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
         else if(test === "="){
             console.log("no push", st);
+            st = [];
+            total = 0;
+            st.push(num);
+            helpDisplayText.textContent = num;
             resultDisplay.textContent = num;
         }
         else {
