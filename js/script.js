@@ -178,6 +178,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
             st[st.length - 1] += num;
             resultDisplay.textContent = st[st.length - 1];
         }
+        else if(test === "="){
+            console.log("no push", st);
+            resultDisplay.textContent = num;
+        }
         else {
             st.push(num);
             resultDisplay.textContent = num;
