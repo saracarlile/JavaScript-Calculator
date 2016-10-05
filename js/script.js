@@ -143,7 +143,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function decimal() {
-
+        var plainDecimal = ".";
+        var zeroDecimal = "0.";
+        if (st.length === 0) {
+            st[0] == zeroDecimal;
+            resultDisplay.textContent = st[st.length - 1];
+        }
+        var test = st[st.length - 1];
+        var f = parseInt(test, 10);
+        if (Number.isInteger(f)) {
+            updateTotal();
+            st[st.length-1] += plainDecimal;
+            resultDisplay.textContent = st[st.length - 1];
+        }
+        else {
+             st.push(zeroDecimal);
+             resultDisplay.textContent = st[st.length - 1];
+        }
     }
 
     function funcNumber() {
