@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function (event) {
     var elements = document.getElementsByClassName('btn-lg');
     // create an array of calculator buttons, loop through the array to assign proper click event handler functions
     for (var i = 0; i < elements.length; i++) {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var total = 0;
     var resultDisplay = document.getElementById('result');  // display on calculator
     var helpDisplayText = document.getElementById('help-text');
-    
+
     function updateTotal() {
         console.log(st);
         if (st.length >= 3) {
@@ -43,29 +43,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
             if (b === "=") {
                 b = "";
-                 resultDisplay.textContent = a.toString();
+                resultDisplay.textContent = a.toString();
             }
-            else{
+            else {
                 var rst_eval = eval(total + b + a);
                 total = rst_eval;
                 resultDisplay.textContent = total.toString();
             }
-            
         }
         else {
-                var rt = st.join(' ');
-                var rt_removeEqual = rt.replace(/=/gi, '');
-                var rteval = eval(rt_removeEqual);
-                total = rteval;
-                resultDisplay.textContent = total.toString()
+            var rt = st.join(' ');
+            var rt_removeEqual = rt.replace(/=/gi, '');
+            var rteval = eval(rt_removeEqual);
+            total = rteval;
+            resultDisplay.textContent = total.toString()
         }
-         
+
         helpDisplayText.textContent = " ";
 
-        for(var j = 0; j < st.length; j++){
-            if(st[j] != undefined){
-                helpDisplayText.textContent += " "+ st[j];
-            }           
+        for (var j = 0; j < st.length; j++) {
+            if (st[j] != undefined) {
+                helpDisplayText.textContent += " " + st[j];
+            }
         }
     }
 
@@ -162,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             st.push(num);
             resultDisplay.textContent = num;
         }
-         console.log(st);
+        console.log(st);
     }
 
 
