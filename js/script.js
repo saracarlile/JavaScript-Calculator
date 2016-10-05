@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function(event) { 
     var elements = document.getElementsByClassName('btn-lg');
     // create an array of calculator buttons, loop through the array to assign proper click event handler functions
     for (var i = 0; i < elements.length; i++) {
@@ -34,25 +34,30 @@ $(document).ready(function () {
     var helpDisplayText = document.getElementById('help-text');
     
     function updateTotal() {
+        console.log(st);
         if (st.length >= 3) {
             var a = st[st.length - 1];
-            var b = st[st.length - 2];  
-            if(a === "="){
+            var b = st[st.length - 2];
+            if (a === "=") {
                 a = "";
             }
-             if(b === "="){
+            if (b === "=") {
                 b = "";
+                 resultDisplay.textContent = a.toString();
             }
-            var rst_eval = eval(total + b + a);
-            total = rst_eval;
-            resultDisplay.textContent = total.toString();
+            else{
+                var rst_eval = eval(total + b + a);
+                total = rst_eval;
+                resultDisplay.textContent = total.toString();
+            }
+            
         }
         else {
-            var rt = st.join(' ');
-            var rt_removeEqual = rt.replace(/=/gi, '');
-            var rteval = eval(rt_removeEqual);
-            total = rteval;
-            resultDisplay.textContent = total.toString()
+                var rt = st.join(' ');
+                var rt_removeEqual = rt.replace(/=/gi, '');
+                var rteval = eval(rt_removeEqual);
+                total = rteval;
+                resultDisplay.textContent = total.toString()
         }
          
         helpDisplayText.textContent = " ";
