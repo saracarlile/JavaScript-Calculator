@@ -81,9 +81,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function funcCE() {  //CE clears last entry
-        console.log(st);
-        st.pop();
-        resultDisplay.textContent = st[st.length - 1];
+        var test = st[st.length - 1];
+        var f = parseInt(test, 10);
+        if (Number.isInteger(f)) {
+            st.pop();
+            resultDisplay.textContent = st[st.length - 1];
+        }
     }
 
     function identifyOperator() {  // multiply and divide buttons
