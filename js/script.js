@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function decimal() {
+        console.log(st);
         var plainDecimal = ".";
         var zeroDecimal = "0.";
         if (st.length === 0) {
@@ -155,11 +156,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var test = st[st.length - 1];
         var f = parseInt(test, 10);
         if (Number.isInteger(f)) {
+            console.log("num");
             updateTotal();
-            st[st.length-1] += plainDecimal;
-            resultDisplay.textContent = st[st.length - 1];
+            st[st.length - 1] += plainDecimal;
+            var removeExtraDecimalHold = st[st.length - 1];
+            var fixedExtraDecimal = removeExtraDecimalHold.split('.');
+            var fixedExtraDecimal = fixedExtraDecimal.shift() + (fixedExtraDecimal.length ? '.' + fixedExtraDecimal.join('') : ''); //used to remove all decimals except first used
+            st[st.length - 1] = fixedExtraDecimal;
+            resultDisplay.textContent = fixedExtraDecimal;
         }
-        else if(test === "="){
+        else if (test === "=") {
             console.log("no push", st);
             st = [];
             total = 0;
@@ -168,11 +174,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
             resultDisplay.textContent = zeroDecimal;
         }
         else {
-             st.push(zeroDecimal);
-             resultDisplay.textContent = st[st.length - 1];
+                st.push(zeroDecimal);
+                resultDisplay.textContent = st[st.length - 1];
         }
     }
 
+
+
+//http://stackoverflow.com/questions/2254185/regular-expression-for-formatting-numbers-in-javascript
     function funcNumber() {
         console.log(st);
         resultDisplay.textContent = ' ';
