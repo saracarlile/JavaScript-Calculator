@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
-    var st = [];  //st array holds button elements until funcAC/funcCE functions are used to clear/edit array
+    var st = [];  //st array holds values from button elements until funcAC/funcCE functions are used to clear/edit array
     var total = 0;
     var resultDisplay = document.getElementById('result');  // display on calculator
     var helpDisplayText = document.getElementById('help-text');
