@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var helpDisplayText = document.getElementById('help-text');
 
     function updateTotal() {
+        disableButtion();
         if (st.length >= 3) {
             var a = st[st.length - 1];
             var b = st[st.length - 2];
@@ -76,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         resultDisplay.textContent = ' ';
         total = 0;
         helpDisplayText.textContent = ' ';
+        disableButtion();
         return st;
     }
 
@@ -175,6 +177,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function funcNumber() {
+        disableButtion();
         resultDisplay.textContent = ' ';
         var num = this.textContent;
         if (st.length === 0) {
@@ -208,6 +211,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 updateTotal();
                 st = [];
                 st.push(total, "=");
+            }
+        }
+    }
+
+    function disableButtion() {
+        var testStringLength = resultDisplay.textContent;
+        console.log("test", testStringLength);
+        if (testStringLength.length > 12) {
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].id !== 'AC') {
+                    elements[i].disabled = true;
+                }
+                else {
+                    elements[i].disabled = false;
+                }
             }
         }
     }
