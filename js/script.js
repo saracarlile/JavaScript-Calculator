@@ -47,9 +47,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
             else {
                 var rst_eval = eval(total + b + a);
-                total = Math.round(rst_eval*100000000)/100000000; //truncate repeating decimals to eight decimal places
-                 var testTotal = total.toString();       
-                resultDisplay.textContent = formatNum(testTotal);
+                total = Math.round(rst_eval*100000000)/100000000; //truncate repeating decimals to eight decimal places   
+                resultDisplay.textContent = total.toString(); 
             }
         }
         else {
@@ -57,8 +56,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var rt_removeEqual = rt.replace(/=/gi, '');
             var rteval = eval(rt_removeEqual);
             total = Math.round(rteval*100000000)/100000000;
-            var testTotal = total.toString();
-            resultDisplay.textContent = formatNum(testTotal);
+            resultDisplay.textContent = total.toString();
         }
 
         helpDisplayText.textContent = " ";
@@ -192,8 +190,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var f = parseInt(test, 10);
         if (Number.isInteger(f)) {
             st[st.length - 1] += num;
-            var tempNum = formatNum(st[st.length - 1]); // add commas for num display
-            resultDisplay.textContent = tempNum;
+            resultDisplay.textContent = st[st.length - 1];
         }
         else if(test === "="){
             console.log("no push", st);
