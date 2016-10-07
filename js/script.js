@@ -77,8 +77,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         resultDisplay.textContent = ' ';
         total = 0;
         helpDisplayText.textContent = ' ';
-        disableButtion();
-        return st;
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].disabled = false;
+        }
     }
 
     function funcCE() {  //CE clears last entry
@@ -217,7 +218,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     function disableButtion() {
         var testStringLength = resultDisplay.textContent;
-        console.log("test", testStringLength);
         if (testStringLength.length > 12) {
             for (var i = 0; i < elements.length; i++) {
                 if (elements[i].id !== 'AC') {
