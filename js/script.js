@@ -48,7 +48,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             else {
                 var rst_eval = eval(total + b + a);
                 total = Math.round(rst_eval*100000000)/100000000; //truncate repeating decimals to eight decimal places
-                resultDisplay.textContent = total.toString();
+                 var testTotal = total.toString();       
+                resultDisplay.textContent = formatNum(testTotal);
             }
         }
         else {
@@ -56,7 +57,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var rt_removeEqual = rt.replace(/=/gi, '');
             var rteval = eval(rt_removeEqual);
             total = Math.round(rteval*100000000)/100000000;
-            resultDisplay.textContent = total.toString();
+            var testTotal = total.toString();
+            resultDisplay.textContent = formatNum(testTotal);
         }
 
         helpDisplayText.textContent = " ";
@@ -179,9 +181,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
-
-
-//http://stackoverflow.com/questions/2254185/regular-expression-for-formatting-numbers-in-javascript
     function funcNumber() {
         console.log(st);
         resultDisplay.textContent = ' ';
@@ -193,7 +192,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var f = parseInt(test, 10);
         if (Number.isInteger(f)) {
             st[st.length - 1] += num;
-            resultDisplay.textContent = st[st.length - 1];
+            var tempNum = formatNum(st[st.length - 1]); // add commas for num display
+            resultDisplay.textContent = tempNum;
         }
         else if(test === "="){
             console.log("no push", st);
@@ -224,7 +224,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
-
-
+    function formatNum(input) {
+        var formatNum = input.split(".");
+        var newSplit = "";
+        var formatNumCommas = formatNum[0];
+        var numWithCommas = formatNumCommas.split(/(?=(?:\d{3})+(?:\.|$))/g).join(","); // regex format numbers using 3 commas
+        if (formatNum[1] !== undefined) {
+            newSplit += numWithCommas + formatNum[1];
+        }
+        else {
+            newSplit += numWithCommas;
+        }
+        return newSplit;
+    }
 
 });
+
