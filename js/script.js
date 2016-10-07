@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var helpDisplayText = document.getElementById('help-text');
 
     function updateTotal() {
-        console.log(st);
         if (st.length >= 3) {
             var a = st[st.length - 1];
             var b = st[st.length - 2];
@@ -47,15 +46,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
             else {
                 var rst_eval = eval(total + b + a);
-                total = Math.round(rst_eval*100000000)/100000000; //truncate repeating decimals to eight decimal places   
-                resultDisplay.textContent = total.toString(); 
+                total = Math.round(rst_eval * 100000000) / 100000000; //truncate repeating decimals to eight decimal places   
+                resultDisplay.textContent = total.toString();
             }
         }
         else {
             var rt = st.join(' ');
             var rt_removeEqual = rt.replace(/=/gi, '');
             var rteval = eval(rt_removeEqual);
-            total = Math.round(rteval*100000000)/100000000;
+            total = Math.round(rteval * 100000000) / 100000000;
             resultDisplay.textContent = total.toString();
         }
 
@@ -63,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         for (var j = 0; j < st.length; j++) {
             if (st[j] != undefined) {
-                if (st[j] !== "="){
-                     helpDisplayText.textContent += " " + st[j];
-                }            
+                if (st[j] !== "=") {
+                    helpDisplayText.textContent += " " + st[j];
+                }
             }
         }
     }
@@ -130,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function plus() {
         var pls = "+";
         resultDisplay.textContent = ' ';
-        console.log(st.length, total, st);
         if (st.length > 0) {
             var test = st[st.length - 1];
             var f = parseInt(test, 10);
@@ -146,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function decimal() {
-        console.log(st);
         var plainDecimal = ".";
         var zeroDecimal = "0.";
         if (st.length === 0) {
@@ -156,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var test = st[st.length - 1];
         var f = parseInt(test, 10);
         if (Number.isInteger(f)) {
-            console.log("num");
             updateTotal();
             st[st.length - 1] += plainDecimal;
             var removeExtraDecimalHold = st[st.length - 1];
@@ -166,7 +162,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             resultDisplay.textContent = fixedExtraDecimal;
         }
         else if (test === "=") {
-            console.log("no push", st);
             st = [];
             total = 0;
             st.push(zeroDecimal);
@@ -174,13 +169,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             resultDisplay.textContent = zeroDecimal;
         }
         else {
-                st.push(zeroDecimal);
-                resultDisplay.textContent = st[st.length - 1];
+            st.push(zeroDecimal);
+            resultDisplay.textContent = st[st.length - 1];
         }
     }
 
     function funcNumber() {
-        console.log(st);
         resultDisplay.textContent = ' ';
         var num = this.textContent;
         if (st.length === 0) {
@@ -192,8 +186,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             st[st.length - 1] += num;
             resultDisplay.textContent = st[st.length - 1];
         }
-        else if(test === "="){
-            console.log("no push", st);
+        else if (test === "=") {
             st = [];
             total = 0;
             st.push(num);
@@ -204,7 +197,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             st.push(num);
             resultDisplay.textContent = num;
         }
-        console.log(st);
     }
 
 
@@ -216,24 +208,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 updateTotal();
                 st = [];
                 st.push(total, "=");
-                console.log(st.length, total, st);
             }
         }
     }
 
-    function formatNum(input) {
-        var formatNum = input.split(".");
-        var newSplit = "";
-        var formatNumCommas = formatNum[0];
-        var numWithCommas = formatNumCommas.split(/(?=(?:\d{3})+(?:\.|$))/g).join(","); // regex format numbers using 3 commas
-        if (formatNum[1] !== undefined) {
-            newSplit += numWithCommas + formatNum[1];
-        }
-        else {
-            newSplit += numWithCommas;
-        }
-        return newSplit;
-    }
 
 });
 
