@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         else {
             op = "*";
         }
-        if (st.length > 0) {  // if this isn't the first entry in string
-            var test = st[st.length - 1]; // check to see if last index of string is a number (helps to filter out multiple operators in a row in st array)
+        if (st.length > 0) {  // if this isn't the first entry in str array
+            var test = st[st.length - 1]; // check to see if last index of str array is a number (helps to filter out multiple operators in a row in st array)
             var f = parseInt(test, 10);
             if (Number.isInteger(f)) {  // if the last index is a number, push / or * operator
                 updateTotal();
